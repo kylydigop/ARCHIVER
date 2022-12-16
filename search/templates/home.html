@@ -1,0 +1,310 @@
+{% extends 'base.html'%} {% load static %} 
+
+{% block title %} PDArchiver {% endblock %}
+
+{% block content %}
+
+<!---HOME PAGE CSS DECLARATION -->
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap"
+    rel="stylesheet"
+/>
+<!-- Bootstrap CSS -->
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+    crossorigin="anonymous"
+/>
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+/>
+<link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+/>
+<link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+/>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+
+
+<!-- END OF HOMEPAGE CSS DECLARATION -->
+
+<div class="homePage">
+    <nav class="navbar navbar-expand-sm fixed-top" style="background-color: #064420;">
+        <a class="navbar-brand" href="#"></a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="False" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="topnav-right">
+                <a href="{% url 'upload' %}"><i class="fa fa-upload" style="font-size:20px" ></i>  UPLOAD  &nbsp</a>
+                <a href="{% url 'profile' userId=request.user %}"><i class="fa fa-fw fa-user" style="font-size:20px" ></i> PROFILE &nbsp</a>
+                <a href="{% url 'about' %}"><i class="fa fa-info-circle" aria-hidden="true"> </i>  ABOUT &nbsp </a>
+                <a href="{% url 'logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> LOGOUT  &nbsp</a>
+      
+            </div>
+          </div>
+    </nav>
+        <div id="wrap">  
+        <div class="container-fluid">
+            <!-- Start of landing -->
+            <section class="jumbotron text-center my-1" id="search">
+                <h1 class="ml11">
+                    <span class="text-wrapper">
+                      <span class="line line1"></span>
+                      <span class="letters">PROJECT DESIGN</span>
+                    </span>
+                  </h1>
+                  
+                  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+                
+                <div class="container-fluid col-6">
+                    <!-- Search -->
+                    <form id="search_form" class="d-flex" role="search" method="POST" action="#" placeholder="SEARCH">
+                        {% csrf_token %}
+                        {{form}}
+                    </form>
+                </div>
+                
+            </section>
+            
+            <section class="p-1  my-1" id="content">
+                
+                <div class="container-d-flex  m-9 p-5" >
+                    <div class="row justify-content-around">
+                        
+                                <div class="p-4 border col-3  bg-light">
+
+                            <!-- Table of content -->
+                            <div id="simple-list-example" class="d-flex flex-column gap-2 simple-list-example-scrollspy text-left">
+                                <h5>TOP SEARCHES</h5>
+                                {% comment %} {% for tag in tags %}
+                                    <label>
+                                        <input class="filter-checkbox" type="checkbox" data-filter="category" value="{{tag.name}}"/>
+                                        <span class="span-checkbox-font" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif !important;
+                                        font-size: 10pt !important;
+                                        color: black;">{{tag.name}}</span>
+                                    </label>
+                                {% endfor %} {% endcomment %}
+                                    
+                                <p class="span-checkbox-font" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif !important;
+                                font-size: 10pt !important;
+                                color: black; font-weight: bold;">Agriculture</p>
+                                <p class="span-checkbox-font" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif !important;
+                                font-size: 10pt !important;
+                                color: black; font-weight: bold;">Artificial Intelligence</p>
+                                <p class="span-checkbox-font" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif !important;
+                                font-size: 10pt !important;
+                                color: black; font-weight: bold;">Machine Learning</p>
+                                <p class="span-checkbox-font" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif !important;
+                                font-size: 10pt !important;
+                                color: black; font-weight: bold;">Deep Learning</p>
+                                <p class="span-checkbox-font" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif !important;
+                                font-size: 10pt !important;
+                                color: black; font-weight: bold;">Education</p>
+                                <p class="span-checkbox-font" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif !important;
+                                font-size: 10pt !important;
+                                color: black; font-weight: bold;">Environment</p>
+                                <p class="span-checkbox-font" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif !important;
+                                font-size: 10pt !important;
+                                color: black; font-weight: bold;">Medical Technology</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-8 offset-small py-1 bg-light">
+                            
+                            <!-- list of researches -->
+                            <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
+                                
+
+                                <div id="result_box" class="list-group">
+
+                                    {% for thesis in thesis %}
+                                    
+                                    <a href="{% url 'abstract' thesis.slug %}" class="list-group-item list-group-item-action mb-3 mt-3"  >
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1" style="font-weight: bold;">{{thesis.title}}</h5>
+                                            <small>{{thesis.whenpublished}}</small>
+                                        </div>
+                                        <div class="abstract_desc" style="height: 10em; overflow: hidden;">
+                                            <p class="mb-1">{{thesis.abstract}}</p>
+                                        </div>
+                                        {% for authors in thesis.authors.all %}
+                                            <small>{{authors.detailName}},</small>
+                                        {% endfor %} <br />
+                                        {% for tags in thesis.tags.all %}
+                                            <small>{{tags.name}},</small>
+                                        {% endfor %}
+                                        {% if user.is_superuser %}
+                                            <a href="{% url 'remove' id=thesis.id%}" class="btn btn-danger">Delete</a>
+                                        {% endif%}
+                                    </a>
+                                    {% endfor %}
+                                    
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                            </div>
+                            
+                        </div>
+                        </div>
+                      
+                    </div>
+                </div>
+                
+        </div>
+        
+        <!-- end of container for our layout -->
+        {% if messages %} {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %} {% endif %}
+</div>
+
+{% endblock %}
+{% block script %}
+<script>
+    const result_box = document.querySelector('#result_box');
+
+    const sendSearchData = (thesis, tags) => {
+
+        $.ajax ({
+            type: 'POST',
+            url: '{% url 'search' %}',
+            data : {
+                'thesis': thesis,
+                'tags' : tags,
+            },
+            headers: {"X-CSRFToken" : csrf_token},
+
+            success : (res) => {
+                const data = res.data;
+                console.log(data)
+                if(Array.isArray(data)) {
+                    data.forEach(thesis => {
+                        result_box.innerHTML += `
+                            <a href="/search/abstract/${thesis.slug}" class="list-group-item list-group-item-action" >
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1" style="font-weight: bold;">${thesis.title}</h5>
+                                <small>${thesis.whenpublished}</small>
+                            </div>
+                            <div class="abstract_desc" style="height: 10em; overflow: hidden;">
+                                <p class="mb-1">${thesis.abstract}}</p>
+                            </div>
+                            ${thesis.authors.map((e) => `<small>${e.fullName}</small>`)}
+                            <br />
+                            ${thesis.tags.map((e) => ` <small>${e}</small>`)}
+                        `
+                            
+                    })
+                } else {
+                    if(search_field.value.length > 0) {
+                        result_box.innerHTML = `<b>${data}</b>`;
+                    } else {
+                        result_box.innerHTML = `
+                        {% for thesis in theses %}
+                                    
+                                    <a href="#" class="list-group-item list-group-item-action" >
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">{{thesis.title}}</h5>
+                                        <small>{{thesis.whenpublished}}</small>
+                                    </div>
+                                    <p class="mb-1">{{thesis.abstract}}</p>
+                                        {% for authors in thesis.authors.all %}
+                                            <small>{{authors.detailName}}</small>
+                                        {% endfor %}
+                                    {% endfor %}`
+                    }
+                }
+            },
+            err : (err) => {
+                console.log(err);
+            }
+        })
+    }
+    
+    const search_form = document.querySelector('#search_form');
+    const search_field = document.querySelector('[name="searchField"]');
+    const csrf_token = document.querySelector('[name="csrfmiddlewaretoken"]').value;
+    
+
+    search_field.addEventListener('input', (e) => {
+
+        result_box.innerHTML = "";
+
+      
+
+        sendSearchData(e.target.value);  
+        
+        
+    })
+
+    // Wrap every letter in a span
+var textWrapper = document.querySelector('.ml11 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml11 .line',
+    scaleY: [0,1],
+    opacity: [0.5,1],
+    easing: "easeOutExpo",
+    duration: 700
+  })
+  .add({
+    targets: '.ml11 .line',
+    translateX: [0, document.querySelector('.ml11 .letters').getBoundingClientRect().width + 10],
+    easing: "easeOutExpo",
+    duration: 700,
+    delay: 100
+  }).add({
+    targets: '.ml11 .letter',
+    opacity: [0,1],
+    easing: "easeOutExpo",
+    duration: 600,
+    offset: '-=775',
+    delay: (el, i) => 34 * (i+1)
+  }).add({
+    targets: '.ml11',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+
+   
+$(document).ready(function() {
+    
+    $('.filter-checkbox').on('click', function() {
+        let _filterObj = {};
+
+        $('.filter-checkbox').each(function(index, elm) {
+            let _filterVal = $(this).val();
+            let _filterKey = $(this).data('filter');
+            _filterObj[_filterKey] = Array.from(document.querySelectorAll('input[data-filter='+_filterKey+']:checked')
+            ).map(function(el){
+                search_field.value = el.value
+                sendSearchData(search_field.value)
+
+            })
+        })
+    });
+    
+})
+
+
+</script>
+{% endblock %}

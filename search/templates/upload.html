@@ -1,0 +1,90 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+  .uploadPageDivider {
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+
+<div class="uploadPage">
+  <link href="{% static 'css/upload.css' %}" rel="stylesheet" />
+<div class="return">
+  <div class="row">
+    <div class="col-25">
+      <button style="font-size:17px" onclick="history.back()"><i class="fa fa-arrow-circle-left"></i>  RETURN</button>
+    </div>
+
+
+<h2><center>UPLOAD PD DOCUMENT</center></h2>
+
+    <form action="#" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <ul id="tagsList">
+      </ul>
+      <div class="uploadPageDivider">
+        <button type="submit" id="submitBtn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" style="font-size:18px" onclick="myFunction()"> Submit</button>
+      <button style="font-size:18px" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="history.back()">Cancel</button>
+      </div>
+      
+    </form>
+    
+
+</body>
+{% endblock %}
+{% block script %}
+<script type="text/javascript">
+  M.AutoInit();
+
+  const taggableList = ["Agriculture",
+    "Artificial Intelligence",
+    "Medical Technology",
+    "Deep Learning",
+    "Education",
+    "Environment",
+    "Machine Learning"
+  ]
+
+  const inputTag = document.querySelector('[name=tags]');
+  tagify = new Tagify(inputTag, {
+    duplicates: false,
+    placeholder: 'Enter your tags for your thesis.',
+    autoComplete: {
+      enabled: true,
+      rightKey: false
+    },
+    whitelist: [
+      'Deep Learning',
+      'Agriculture',
+      'Machine Learning',
+      'Medical Technology',
+      'Education',
+      'Environment',
+      'Artificial Intelligence',
+    ],
+    enforceWhitelist: true,
+    maxTags: 7,
+    dropdown: {
+      maxItems: 7,
+      className: "tags-look",
+      closeOnSelect: false,
+      enabled : 0,
+    }
+  })
+  function myFunction() {
+    alert("Confirm Upload?");
+  }
+
+ 
+
+
+</script>
+{% endblock %}
+
+{% block title %} UPLOAD {% endblock %}

@@ -1,0 +1,94 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="loginPage">
+	<div class="loginPageWrapper">
+		<div class="loginPageWrapperHeader">
+			<h4>PD DOCUMENTS ARCHIVER</h4>
+		</div>
+		<div class="loginMainScreen">
+			<div class="loginPageImage">
+				<img src="{% static 'img/login.png' %}" alt="Devices Images" />
+			</div>
+			<div class="loginScreenBox">
+				<div class="loginScreenBoxDialog">
+						<div class="loginDialogHeaderGrid">
+						<div class="loginDialogGridItem">
+							<a id="switchToStudent" class="loginSwitchLinks isSelected" href="#">Student</a>
+						</div>
+						<div class="loginDialogGridItem">
+							<a id="switchToFaculty" class="loginSwitchLinks" href="#">Faculty</a>
+						</div>
+					</div>
+					<div class="loginContainerHandler">
+						<div id="facultyLoginContainer" class="facultyLoginContainer">
+							<form action="#" method="POST" class="col s12">
+								{% csrf_token %}
+								<div class="row">
+									<div class="input-field col s12">
+										{{form.userId}}
+										<label for="userId" class="loginDialogLabel">User ID</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										{{form.password}}
+										<label for="password" class="loginDialogLabel">Password</label>
+									</div>
+								</div>
+								<div class="row">
+									<button
+										class="btn black col s12 waves-effect waves-light loginBtn"
+										type="submit"
+										name="action"
+									>
+										Login
+									</button>
+								</div>
+							</form>
+						</div>
+						<div id="studentLoginContainer" class="studentLoginContainer show">
+							<form method="POST" class="col s12">
+								{% csrf_token %}
+								<div class="row">
+									<div class="input-field col s12">
+										{{form.studentNumber}}
+										<label for="studentNumber" class="loginDialogLabel">Student Number</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										{{form.userId}}
+										<label for="userId" class="loginDialogLabel">User ID</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										{{form.password}}
+										<label for="password" class="loginDialogLabel">Password</label>
+									</div>
+								</div>
+								<div class="row">
+									<button
+										class="btn black col s12 waves-effect waves-light loginBtn"
+										type="submit"
+										name="action"
+									>
+										Login
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+					{% if messages %} {% for message in messages %}
+					<div class="loginMessages">
+						<p>{{message}}</p>
+					</div>
+					{% endfor %} {% endif %}
+					<div class="loginScreenBoxBottom">
+						<p>Don't have an account yet? <a href="{% url 'register' %}">Sign Up</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

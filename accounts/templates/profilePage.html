@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Research Preview</title>
+<meta charset="UTF-8">
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fontawesome.com/v5/icons/user-alt?s=solid&f=classic">
+<link href="{% static 'css/profile.css' %}" rel="stylesheet" />
+
+</head>
+<body>
+
+<!-- Header -->
+
+<header class="w3-container" style="background-color: #1d4214; style="padding: 1px;">
+  <button style="font-size:17px" onclick="history.back()"><i class="fa fa-arrow-circle-left"></i>  RETURN</button>
+  <h1 class="w3-margin w3-jumbo w3-center" style="color:white">PROFILE</h1>
+  <h3 class="w3-margin w3-w3-medium w3-center" style="color:white"> Account Information </h3>
+</header>
+ 
+
+
+<form class="cf">
+  <div class="cfcf">
+    <div class="container">
+      <img src="{% static 'img/avatarss.png' %}" alt="Avatar" class="image">
+      <div class="overlay">
+      <a href="#" class="icon" title="User Profile"> </a>
+      </div>
+    </div>
+
+    <br />
+    <center>  
+    <label for="fname"> Full Name </label>
+    <p>{{user.firstName}} {{user.lastName}}</p>
+    <label for="userID"> User ID </label>
+    <p>{{user.userId}}</p>
+    <label for="userID"> Email</label>
+    <p>{{user.email}}</p>
+    </center>
+  </div>
+  </div>
+  
+</form>
+<script
+  src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'>
+
+</script>
+
+</body>
+
+</html>
+
+
+{% endblock %}
+{% block title %} PROFILE {% endblock %}

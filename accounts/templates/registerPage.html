@@ -1,0 +1,101 @@
+{% extends 'base.html'%} {% load static %} {% block content %}
+<div class="registerPage">
+	<div class="registerPageWrapper">
+		<div class="registerPageWrapperHeader">
+			<h4>PD DOCUMENT ARCHIVER</h4>
+		</div>
+		<div class="registerPageWrapperMainScreen">
+			<div class="registerPageWrapperTitle">
+				<h4>Create a Student Account</h4>
+				<p style="color: black">
+					Already have an account? |
+					<a
+						style="color: black !important; text-decoration: underline; font-weight: 500"
+						href="{% url 'login' %}"
+						>Sign In</a
+					>
+				</p>
+			</div>
+			<div class="registerPageWrapperDialog">
+				<div class="registerMainScreen">
+					<form action="#" method="POST" class="col s12">
+						{% csrf_token %}
+
+						<div class="row">
+							<div class="input-field col s5">
+								{{form.firstName}}
+								<label for="id_firstName" class="registerDialogLabel">First Name:</label>
+							</div>
+							<div class="input-field col s6" style="padding-left: 7em">
+								{{form.email}}
+								<label for="id_email" class="registerDialogLabel" style="padding-left: 5.5em"
+									>Email Address:</label
+								>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s5">
+								{{form.middleName}}
+								<label for="id_middleName" class="registerDialogLabel">Middle Name:</label>
+							</div>
+							<div class="input-field col s6" style="padding-left: 7em">
+								{{form.studentNumber}}
+								<label
+									for="id_studentNumber"
+									class="registerDialogLabel"
+									style="padding-left: 5.5em"
+									>Student Number</label
+								>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s5">
+								{{form.lastName}}
+								<label for="id_lastName" class="registerDialogLabel">Last Name:</label>
+							</div>
+							<div class="input-field col s6 registerPasswordToolTip" style="padding-left: 7em">
+								{{form.password1}}
+								<label for="id_password1" class="registerDialogLabel" style="padding-left: 5.5em"
+									>Password</label
+								>
+								<span class="registerPasswordToolTipText">
+									Your password can’t be too similar to your other personal information.<br />
+									Your password must contain at least 8 characters. <br />
+									Your password can’t be a commonly used password. <br />
+									Your password can’t be entirely numeric.
+								</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s5">
+								{{form.userId}}
+								<label for="id_userId" class="registerDialogLabel">User ID:</label>
+							</div>
+							<div class="input-field col s6" style="padding-left: 7em">
+								{{form.password2}}
+								<label for="id_password2" class="registerDialogLabel" style="padding-left: 5.5em"
+									>Confirm Password</label
+								>
+							</div>
+						</div>
+						<div class="registerMainScreenBottom">
+							<button
+								class="btn black col s12 waves-effect waves-light loginBtn"
+								type="submit"
+								name="action"
+							>
+								Create your account
+							</button>
+						</div>
+					</form>
+					{% if form.errors %} {% for field in form %} {% for error in field.errors %}
+					<center>
+						<p style="font-weight: bold; color: red">{{ error|escape }}</p>
+					</center>
+					{% endfor %} {% endfor %} {% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

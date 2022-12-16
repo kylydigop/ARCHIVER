@@ -1,0 +1,107 @@
+{% extends 'base.html' %} {% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/about-us.css' %}" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fontawesome.com/v5/icons/user-alt?s=solid&f=classic">
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<header class="w3-container" style="background-color: #1d4214;">
+  <button style="font-size:17px" onclick="history.back()"><i class="fa fa-arrow-circle-left"></i>  RETURN</button>
+  <h1 class="w3-margin w3-jumbo w3-center" style="color:white" >About Us</h1>
+</header>
+
+<div class="row" style="background-color:#CCD6A6;">
+  <div class="column1">
+    <img src="{% static 'img/login.png' %}" alt=""> 
+        <div class="hff">
+        <h4> PROJECT DESIGN DOCUMENT ARCHIVER</h4>
+            <div class="hf">
+            <p> PDArchiver is a web application that efficiently organizes data for access and modification. 
+                This might involve storing data in a database and offering access and analysis tools for that data. 
+                The objective of an archiver is to preserve and organize material in a manner that facilitates quick access and 
+                retrieval. Archives may also provide tools for organizing and indexing data, as well as searching for and 
+                retrieving particular items..</p> 
+            </div>
+        </div>
+    </div>
+            
+        
+  <div class="column" style="background-color:#DAE2B6;">
+    <h2>Developer Team</h2>
+      <ul class="clear">
+          <figure><img src="{% static 'img/team1.png' %}" alt="">
+            <figcaption>
+              <p class="team_name">Jack Jr. G. Baconga</p>
+              <p class="team_title">Railway Engineering</p>
+              <i class="fa fa-envelope" style="font-size:19px"> qjjbaconga@tip.edu.ph </i>
+            </figcaption>
+          </figure>
+      
+          <figure><img src="{% static 'img/team2.png' %}" alt="">
+            <figcaption>
+              <p class="team_name">Jerwellson H. Cabug</p>
+              <p class="team_title">Intellegence System</p>
+              <i class="fa fa-envelope" style="font-size:19px"> qjhcabug@tip.edu.ph </i>
+            </figcaption>
+          </figure>
+      
+      
+          <figure><img src="{% static 'img/team3.png' %}" alt="">
+            <figcaption>
+              <p class="team_name">Faith Mary T. Galon</p>
+              <p class="team_title">System Administrator</p>
+              <i class="fa fa-envelope" style="font-size:19px"> qfmtgalon@tip.edu.ph </i>
+            </figcaption>
+          </figure>
+    
+        
+  </div>
+  <div class="column" style="background-color:#CCD6A6;">
+    <h2>Developer Team</h2>
+ 
+      <ul class="clear">
+ 
+          <figure><img src="{% static 'img/team4.png' %}" alt="">
+            <figcaption>
+              <p class="team_name">John Lloyd L. Lanon</p>
+              <p class="team_title">System Administrator</p>
+              <i class="fa fa-envelope" style="font-size:19px"> qjlllanon@tip.edu.ph </i>
+            </figcaption>
+          </figure>
+    
+     
+          <figure><img src="{% static 'img/team5.png' %}" alt="">
+            <figcaption>
+              <p class="team_name">Renzo L. Rañola</p>
+              <p class="team_title">Data Science</p>
+              <i class="fa fa-envelope" style="font-size:19px"> qrlranola@tip.edu.ph</i>
+            </figcaption>
+          </figure>
+   
+  
+          <figure><img src="{% static 'img/team6.png' %}" alt="">
+            <figcaption>
+              <p class="team_name">Dr. Jonathan V. Taylar</p>
+              <p class="team_title">Instructor</p>
+              <i class="fa fa-envelope" style="font-size:19px"> jtaylar.cpe@tip.edu.ph </i>
+            </figcaption>
+          </figure>
+ 
+        
+      </ul>
+    </section>
+    
+  </div>
+</div>
+{% endblock %}
+
+{% block title %} About Us {% endblock %}
